@@ -33,11 +33,19 @@ class HomeViewController: UIViewController {
         }
         QuoteAPIClient.manager.getQuote(url: url, completionHandler: completion, errorHandler: {print($0)})
     }
+    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) {alert in }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 
     @IBAction func sendMessageButtonPressed(_ sender: Any) {
         let message = Message(message: textView.text)
         DatabaseService.manager.addMessage(messageToSave: message)
         textView.resignFirstResponder()
+        showAlert(title: "Message Sent", message: "Message has been sent to InspoBox!")
         print("senddd")
     }
     
