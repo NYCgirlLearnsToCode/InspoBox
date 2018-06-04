@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
         let url = "http://quotes.rest/qod.json?category=\(selectedCategory)"
         let completion = {(onlineQuote: [quotesArr]) in
             self.randomQuote = onlineQuote
-            self.textView.text = self.randomQuote[0].quote
+            self.textView.text = "\(self.randomQuote[0].quote) -\(self.randomQuote[0].author)"
             print(self.randomQuote)
         }
         QuoteAPIClient.manager.getQuote(url: url, completionHandler: completion, errorHandler: {print($0)})
@@ -37,11 +37,13 @@ class HomeViewController: UIViewController {
     @IBAction func sendMessageButtonPressed(_ sender: Any) {
         let message = Message(message: textView.text)
         DatabaseService.manager.addMessage(messageToSave: message)
+        textView.resignFirstResponder()
         print("senddd")
     }
     
     @IBAction func randomInspirationMessagePressed(_ sender: UIButton) {
         print("random inspo")
+        textView.resignFirstResponder()
         loadRandomQuote()
     }
     
