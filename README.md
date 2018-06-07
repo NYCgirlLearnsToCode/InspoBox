@@ -6,6 +6,8 @@ When you send a text message to someone, they probably have twenty other notific
 
 Give the raspberry pi and lcd configuration to a loved one, family, friends . All they have to do is plug it in and place it on their desk. (A working wifi connection is also needed)
 
+https://youtu.be/AgKeJx_jLt4 <- See InspoBox in action here 
+
 No matter if you are close by or half a world away, you can send them a message and they will see it on their desk and know you are thinking of them!
 
 Tutorial for the raspberry pi, lcd portion of project will be posted soon!
